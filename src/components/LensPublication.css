@@ -1,0 +1,48 @@
+.publication {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .publication__image {
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+  }
+  
+  .publication__content {
+    flex: 1;
+  }
+  
+  .publication__author {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .publication__description {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  
+  .publication__comments {
+    margin-top: 20px;
+  }
+  
+  .publication__comment {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .publication__comment-text {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .publication__comment-author {
+    font-size: 14px;
+    color: gray;
+  }
+  

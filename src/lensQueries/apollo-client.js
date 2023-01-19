@@ -1,13 +1,8 @@
-import {
-    ApolloClient,
-    ApolloLink,
-    from,
-    HttpLink,
-    InMemoryCache,
-  } from '@apollo/client';
-  import { onError } from '@apollo/client/link/error';
-  import fetch from 'cross-fetch';
-  const lensAPI = "https://api.lens.dev"
+import { ApolloClient, from, HttpLink, InMemoryCache } from '@apollo/client';
+import { onError } from '@apollo/client/link/error';
+import fetch from 'cross-fetch';
+
+const lensAPI = "https://api.lens.dev"
 
   const defaultOptions = {
     watchQuery: {
