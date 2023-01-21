@@ -1,4 +1,4 @@
-import PostCard from "./PublicationCard";
+import PublicationCard from "./PublicationCard";
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 
@@ -60,7 +60,7 @@ export default function ExplorePublications(props) {
             >
                 <div className="publications-container">
                     {publications.map((publication, index) => (
-                        <PostCard key={`${publication.metadata.id}-${index}`} publication={publication} />
+                        <PublicationCard key={`${publication.metadata.id}-${index}`} publication={publication} />
                     ))}
                 </div>
             </InfiniteScroll>

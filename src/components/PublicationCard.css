@@ -3,6 +3,7 @@
     margin: 2px;
     position: relative;
     overflow: hidden;
+    display: inline-block;
 }
 
 .publication-card img {
@@ -37,8 +38,8 @@
     color: white;
     text-shadow: 2px 2px black;
     position: absolute;
-    top: 0%;
-    left: 0%;
+    top: 0;
+    left: 0;
     opacity: 0;
     transition: opacity 0.8s ease;
     width: 100%;

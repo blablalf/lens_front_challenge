@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import Image from './Image'
+import PublicationCard from "./PublicationCard";
 
 import { getPost as getPublication } from '../lensQueries/getPost';
 import { getPostComments as getComments } from '../lensQueries/getPostComments';
@@ -44,8 +46,7 @@ function LensPublication() {
     <div>
       {loadingPublication || loadingComments ? <h1>Loading...</h1> :
         <div>
-          <Image hash={publication?.metadata?.media[0].original.url}
-            desc={publication?.metadata?.name}/>
+          <PublicationCard publication={publication}/>
           {comments?.map((comment, index) => 
             <div key={`${comment.metadata.id}-${index}`}>
               <p>{comment.metadata.content}</p>

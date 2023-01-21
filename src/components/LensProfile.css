@@ -104,3 +104,11 @@ p.profile-infos-title {
     font-size: 36px;
     color: yellow;
 }
+
+/*Container that contains every publications*/
+.publications-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}

@@ -6,7 +6,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import { getUserPosts as getPublications } from "../lensQueries/getUserPosts";
 import { getUserProfile } from "../lensQueries/getUserProfile";
 import Image from "./Image";
-import PostCard from "./PublicationCard";
+import PublicationCard from "./PublicationCard";
 
 import './LensProfile.css';
 
@@ -103,9 +103,9 @@ function LensProfile() {
                     >
                         <div className="publications-container">
                             {publications.map((publication, index) => (
-                                <div key={index}>
-                                    <PostCard publication={publication} />
-                                </div>
+                                <PublicationCard
+                                    key={`${publication.metadata.id}-${index}`} publication={publication}
+                                />
                             ))}
                         </div>
                     </InfiniteScroll>
