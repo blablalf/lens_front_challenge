@@ -7,6 +7,7 @@ import LensPublication from './components/LensPublication';
 import reportWebVitals from './reportWebVitals';
 
 import './index.css';
+import LensProfile from './components/LensProfile';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -18,11 +19,13 @@ root.render(
           <li><Link to={'/'} className="nav-link">/</Link></li>
           <li><Link to={'/home'} className="nav-link">Home</Link></li>
           <li><Link to={'/publication'} className="nav-link">Publication</Link></li>
+          <li><Link to={'/user'} className="nav-link">User</Link></li>
         </ul>
       </nav>
       <Routes>
         <Route path="/home" element={<ExplorePublications/>} />
-        <Route path="/publication/:id" element={<LensPublication/>} /> 
+        <Route path="/publication/:id" element={<LensPublication/>} />
+        <Route path="/user/:username" element={<LensProfile/>} />
       </Routes>
     </Router>
   </React.StrictMode>

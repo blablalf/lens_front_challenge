@@ -1,0 +1,144 @@
+/*root container*/
+.explore-container {
+    background-color: #171717;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/*Explore publication title*/
+.explore-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/*Container that contains every publications*/
+.publications-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+/*Container that contains one sample publication*/
+.publication-card {
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.publication-card img {
+    max-width: 100%;
+}
+
+/*When your mouse pass over a publication card, what the img becomes*/
+.publication-card:hover img {
+    filter: brightness(40%);
+    transition: filter 0.8s ease;
+}
+
+/*publication author text displayed when you hover an image*/
+.publication-text-author {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px black;
+    text-decoration-color: white;
+}
+
+/*Container that contains every text suddendly displayed on the card*/
+.publication-text {
+    color: white;
+    text-shadow: 2px 2px black;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    width: 100%;
+    text-align: left;
+}
+
+/*publication description text displayed when you hover an image*/
+.publication-text-content {
+    margin: 5%;
+    font-size: 18px;
+    max-width: 80%;
+}
+
+@media only screen and (max-width: 480px) {
+    .publication-text-content {
+        font-size: 12px;
+        margin: 3%;
+    }
+
+    .publication-text-author {
+        font-size: 18px;
+        margin: 5%;
+    }
+
+    .publication-text {
+        top: 0;
+        left: 0;
+    }
+}
+
+/*What the publication description text container (so every texts) becomes when you hover an image*/
+.publication-card:hover .publication-text {
+    opacity: 1;
+}
+
+/* Dark theme */
+body {
+    background-color: #333;
+    color: white;
+}
+
+/* Loader text */
+.loader {
+    color: white;
+}
+
+/* Button on the bottom of the screen if you want to load more publications manually */
+.load-more-button {
+    background-color: #4CAF50; /* Green */
+    border-radius: 30px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.filter-select {
+    padding: 12px 20px;
+    display: inline-block;
+    background-color: #333;
+    color: #333;
+    align-self: flex-start;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.filter-select option {
+    background-color: #333;
+    color: #333;
+}
+
+.filter-select:hover {
+    background-color: #444;
+}
+
+/* To hide the default select element */
+select {
+    display: none;
+}

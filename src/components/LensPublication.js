@@ -3,33 +3,55 @@ import { useParams } from 'react-router-dom';
 import Image from './Image'
 
 import { getPost as getPublication } from '../lensQueries/getPost';
+import { getPostComments as getComments } from '../lensQueries/getPostComments';
 
 import './LensPublication.css';
 
 function LensPublication() {
   const { id } = useParams();
+  const [comments, setComments] = useState();
   const [publication, setPublication] = useState();
-  const [loading, setLoading] = useState(true);
+  const [loadingPublication, setLoadingPublication] = useState(true);
+  const [loadingComments, setLoadingComments] = useState(true);
 
   useEffect(() => {
     const getPublicationDatas = async () => {
       try {
-        const post = await getPublication(id);
-        setPublication(post.data.publication);
-        setLoading(false);
+        const response = await getPublication(id);
+        setPublication(response.data.publication);
+        console.log("publication", response.data.publication);
+        setLoadingPublication(false);
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    const getCommentsDatas = async () => {
+      try {
+        const response = await getComments(id);
+        setComments(response.data.publications.items);
+        setLoadingComments(false);
       } catch (err) {
         console.log(err)
       }
     }
 
     getPublicationDatas();
+    getCommentsDatas();
   }, [id]);
 
   return (
     <div>
-      {loading ? <h1>Loading...</h1> :
-        <Image hash={publication.metadata.media[0].original.url}
-        alternative={publication.metadata.name}/>
+      {loadingPublication || loadingComments ? <h1>Loading...</h1> :
+        <div>
+          <Image hash={publication?.metadata?.media[0].original.url}
+            desc={publication?.metadata?.name}/>
+          {comments?.map((comment, index) => 
+            <div key={`${comment.metadata.id}-${index}`}>
+              <p>{comment.metadata.content}</p>
+            </div>
+          )}
+        </div>
       }
     </div>
   );
