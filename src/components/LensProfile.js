@@ -1,57 +1,121 @@
 import React, { useEffect, useState } from "react";
-import { getUserProfile } from "../lensQueries/getUserProfile";
-import { getUserPosts as getPublications } from "../lensQueries/getUserPosts";
 import { useParams } from "react-router-dom";
+
+import InfiniteScroll from "react-infinite-scroller";
+
+import { getUserPosts as getPublications } from "../lensQueries/getUserPosts";
+import { getUserProfile } from "../lensQueries/getUserProfile";
 import Image from "./Image";
+import PostCard from "./PublicationCard";
+
+import './LensProfile.css';
 
 function LensProfile() {
     const [profile, setProfile] = useState(null);
-    const [publications, setPublications] = useState(null);
+    const [publications, setPublications] = useState([]);
     const [loadingProfile, setLoadingProfile] = useState(true);
     const [loadingPublication, setLoadingPublication] = useState(true);
+    const [cursor, setCursor] = useState(null);
     const { username } = useParams();
 
+    const loadPublications = async () => {
+        try {
+            // Get user profile
+            const profileRes = await getUserProfile(username);
+            setProfile(profileRes);
+            setLoadingProfile(false);
+            // Get user publications
+            const publicationsRes = await getPublications(profileRes.id, cursor);
+            console.log(publicationsRes);
+            setPublications([
+                ...publications,
+                ...publicationsRes.data.publications.items,
+            ]);
+            setCursor(publicationsRes.data.publications.pageInfo.next);
+            setLoadingPublication(false);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                // Get user profile
-                const profile = await getUserProfile(username);
-                setProfile(profile);
-                setLoadingProfile(false);
-                console.log(profile);
-                // Get user publications
-                const publications = await getPublications(profile.id);
-                setPublications(publications.data.publications);
-                setLoadingPublication(false);
-                console.log(publications);
-            } catch (err) {
-                console.log(err);
-            }
-        };        
+        loadPublications();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [username]);
 
-        fetchData();
-    }, [profile, username]);
+    if (!loadingProfile && !loadingPublication) {
+        return (
+            <div>
+                <h1 className="profile-title">@{profile.handle}</h1>
+                <div className="profile-infos-container">
+                    <div className="profile-picture-container">
+                        <Image className="profile-picture" hash={profile?.picture?.original.url} desc={profile?.name} />
+                    </div>
+                    <div className="profile-infos">
+                        <div className="profile-desc">
+                            <p>{profile?.name}</p>
+                            <p>{profile?.bio}</p>
+                        </div>
+                        <div className="profile-infos-text">
+                            <div className="profile-stats-container">
+                                <p className="profile-infos-title">Stats:</p>
+                                <div className="profile-stats">
+                                    <p>Following: {profile.stats.totalFollowing}</p>
+                                    <div className="profile-stats-followers-container">
+                                        <p>Followers:</p>
+                                        <a href={`https://polygonscan.com/address/${profile.followNftAddress}`}>
+                                            {profile.stats.totalFollowers}
+                                        </a>
+                                    </div>
+                                    <p>Comments: {profile.stats.totalComments}</p>
+                                    <p>Posts: {profile.stats.totalPosts}</p>
+                                    <p>Publications: {profile.stats.totalPublications}</p>
+                                    <p>Mirrors: {profile.stats.totalMirrors}</p>
+                                </div>
+                            </div>
+                            <div className="profile-id-container">
+                                <p className="profile-infos-title">Id:</p>
+                                <p>Lens profile: {profile.handle}</p>
+                                <div className="profile-wallet-address-container-desktop">
+                                    <p>Wallet address:</p>
+                                    <a href={`https://polygonscan.com/address/${profile.ownedBy}`}>
+                                        {profile.ownedBy}
+                                    </a>
+                                </div>
+                                <div className="profile-wallet-address-container-mobile">
+                                    <p>Wallet address:</p>
+                                    <a href={`https://polygonscan.com/address/${profile.ownedBy}`}>
+                                        {profile.ownedBy.slice(0, 6) + "..." + profile.ownedBy.slice(-4)}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    if (loadingProfile || loadingPublication) {
-        return <p>Loading...</p>;
+                </div>
+
+                <h2 className="publications-title">Publications</h2>
+                <div className="publications-container">
+                    <InfiniteScroll
+                        loadMore={loadPublications}
+                        hasMore={cursor !== null}
+                        loader={<p className="loader">Loading...</p>}
+                    >
+                        <div className="publications-container">
+                            {publications.map((publication, index) => (
+                                <div key={index}>
+                                    <PostCard publication={publication} />
+                                </div>
+                            ))}
+                        </div>
+                    </InfiniteScroll>
+                    <button className="load-more-button" onClick={loadPublications}>
+                        Load More
+                    </button>
+                </div>
+            </div>
+        );
     }
-
-    return (
-        <div>
-            <h1>{profile.name}</h1>
-            <p>{profile.bio}</p>
-            <Image hash={profile?.picture?.original.url} desc={profile?.name} />
-            <h2>Publications</h2>
-            <ul>
-                {publications.items.map((publication, index) => (
-                    <li key={`${publication.metadata.id}-${index}`}>
-                        <h3>{publication.metadata.name}</h3>
-                        <p>{publication.metadata.content}</p>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
 }
 
 export default LensProfile;

@@ -1,0 +1,106 @@
+/*Div containing the profile picture component*/
+.profile-picture-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+}
+
+/*img inside the div*/
+.profile-picture-container img {
+    width: 100%;
+    height: 100%;
+}
+
+/*rofile name*/
+.profile-title {
+    text-align: center;
+    font-size: 36px;
+    color: yellow;
+}
+
+/*profile infos container*/
+.profile-infos-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/*profile infos*/
+.profile-infos {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.profile-infos-text p {
+    font-size: 16px;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.profile-infos-text a {
+    font-size: 16px;
+    color: greenyellow;
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-left: 5px;
+}
+
+/*The "Stats:" text*/
+p.profile-infos-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.profile-stats-followers-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+/*The "Wallet address: {wallet}" text desktop version*/
+.profile-wallet-address-container-desktop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/*The "Wallet address: {wallet}" text mobile version*/
+.profile-wallet-address-container-mobile {
+    display: none;
+}
+
+@media only screen and (max-width: 480px) {
+
+    /*Wrapping wallet address*/
+    .profile-wallet-address-container-desktop {
+        display: none;
+    }
+
+    .profile-wallet-address-container-mobile {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    /*End of wrapping wallet address*/
+}
+
+.profile-infos-text {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.publications-title {
+    text-align: center;
+    font-size: 36px;
+    color: yellow;
+}

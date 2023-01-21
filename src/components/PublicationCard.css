@@ -1,0 +1,74 @@
+/*Container that contains one sample publication*/
+.publication-card {
+    margin: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.publication-card img {
+    max-width: 100%;
+}
+
+/*When your mouse pass over a publication card, what the img becomes*/
+.publication-card:hover img {
+    filter: brightness(35%);
+    transition: filter 0.8s ease;
+}
+
+/*publication stats text displayed when you hover an image*/
+.publication-text-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px black;
+    text-decoration: none;
+}
+
+.publication-text-stats p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*Container that contains every text suddendly displayed on the card*/
+.publication-text {
+    color: white;
+    text-shadow: 2px 2px black;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+/*publication description text displayed when you hover an image*/
+.publication-text-content {
+    margin: 2%;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 480px) {
+    .publication-text-content {
+        font-size: 12px;
+        margin: 3%;
+    }
+
+    .publication-text-stats {
+        font-size: 16px;
+    }
+
+    .publication-text {
+        top: 0;
+        left: 0;
+    }
+}
+
+/*What the publication description text container (so every texts) becomes when you hover an image*/
+.publication-card:hover .publication-text {
+    opacity: 1;
+}
