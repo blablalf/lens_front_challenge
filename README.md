@@ -19,6 +19,7 @@ useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [username]);
 ```
+I think this causes a bug that sometimes makes the filter publication change fail on explore publication page
 
 - There are a recurrent error occurring with multiple element without keys inside <InfiniteScroll> tag. Well, I searched and didn't find this element so I will fix this later
 
