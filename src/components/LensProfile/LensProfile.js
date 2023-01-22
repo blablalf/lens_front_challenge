@@ -26,7 +26,6 @@ function LensProfile() {
             setLoadingProfile(false);
             // Get user publications
             const publicationsRes = await getPublications(profileRes.id, cursor);
-            console.log(publicationsRes);
             setPublications([
                 ...publications,
                 ...publicationsRes.data.publications.items,
@@ -45,7 +44,7 @@ function LensProfile() {
 
     if (!loadingProfile && !loadingPublication) {
         return (
-            <div>
+            <div className="profile-container">
                 <h1 className="profile-title">@{profile.handle}</h1>
                 <div className="profile-infos-container">
                     <div className="profile-picture-container">
@@ -96,19 +95,17 @@ function LensProfile() {
 
                 <h2 className="publications-title">Publications</h2>
                 <div className="publications-container">
-                    <InfiniteScroll
+                    { publications.length > 0 ? <InfiniteScroll
                         loadMore={loadPublications}
                         hasMore={cursor !== null}
                         loader={<p className="loader">Loading...</p>}
                     >
                         <div className="publications-container">
-                            {publications.map((publication, index) => (
-                                <PublicationCard
-                                    key={`${publication.metadata.id}-${index}`} publication={publication}
-                                />
+                            {publications.map((publication) => (
+                                <PublicationCard key={publication.id} publication={publication}/>
                             ))}
                         </div>
-                    </InfiniteScroll>
+                    </InfiniteScroll> : null }
                 </div>
             </div>
         );

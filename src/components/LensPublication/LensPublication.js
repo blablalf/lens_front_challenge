@@ -27,7 +27,6 @@ function LensPublication() {
         ...commentsRes.data.publications.items,
       ]);
       setCommentCursor(commentsRes.data.publications.pageInfo.next);
-      console.log("comment", commentsRes.data.publications.items);
       setLoadingComments(false);
     } catch (err) {
       console.log(err)
@@ -58,7 +57,7 @@ function LensPublication() {
         <div className='lens-publication-infos'>
 
           <div className='lens-publication-pub-card'>
-            <PublicationCard publication={publication} />
+            <PublicationCard keyIndex={0} publication={publication} />
           </div>
 
           <div className='lens-publication-text-data'>
@@ -72,7 +71,7 @@ function LensPublication() {
 
         <div className='lens-publication-comments'>
           <h1 className="lens-publication-comments-title">Comments</h1>
-          <InfiniteScroll
+          { comments.length > 0 ? <InfiniteScroll
               loadMore={getCommentsDatas}
               hasMore={commentCursor !== null}
               loader={<p className="loader">Loading...</p>}
@@ -84,7 +83,7 @@ function LensPublication() {
                 </div>
               )}
             </div>
-          </InfiniteScroll>
+          </InfiniteScroll> : null }
         </div>
 
       </div>

@@ -4,11 +4,13 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  padding-top: 100px;
 }
-  
+
 /*Container containing publication officials infos*/
 .lens-publication-infos {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   color: white;

@@ -6,6 +6,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    padding-top: 100px;
 }
 
 /*Explore publication title*/

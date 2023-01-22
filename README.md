@@ -1,7 +1,38 @@
+# My answer facing the challenge :
 
+I did a lot of errors but it had been a while since I had touched the react so it was a good warmup.
 
+I regret to not have used [react-native-lens-ui-kit](https://github.com/lens-protocol/react-native-lens-ui-kit)
+, I wanted to do without it until the end but I think that if I am brought to work again on lens protocol it could have given me an additional knowledge.
+So I regained in front that I lost it in time and in knowledge of this package.
 
-https://github.com/lens-protocol/react-native-lens-ui-kit
+I had a lot of fun working on this challenge, I am looking forward to new challenges.
+
+___
+# Known bugs/errors/things to rework :
+- There is a missing dependencies into the `useEffect()` code inside `LensProfile.js`, `LensPublication.js` and `ExplorePublications.js`. I should include the function which gets the data but I don't want to because I don't want that the state update (and so, launch this function) every time a result is received.
+I know this is an "arechitecture" error and it is probably an easy fix but I don't have time to look further currently so I have disabled the eslint rule for it.  
+Like this :
+```
+useEffect(() => {
+    loadPublications();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [username]);
+```
+
+- There are a recurrent error occurring with multiple element without keys inside <InfiniteScroll> tag. Well, I searched and didn't find this element so I will fix this later
+
+- Profile picture : lol, I have very badly handled it, this need to be recoded
+
+- There is still a lot of code that can be divided into further components
+
+___
+# Test the dapp :
+- Go to http://blablaf.tk:82/ and then :
+    - Test the explore publications page http://blablaf.tk:82/home
+    - Test the profil page http://blablaf.tk:82/user/nader.lens or http://blablaf.tk:82/user/w0xt3r.lens
+    - Test the publication page http://blablaf.tk:82/publication/0xbedb-0xa9
+___
 # Build your first social network  
 
 **Deadline: 24/01/2023**

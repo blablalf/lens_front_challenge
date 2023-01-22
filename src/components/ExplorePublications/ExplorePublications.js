@@ -36,7 +36,6 @@ export default function ExplorePublications(props) {
                 ...response.data.explorePublications.items,
             ]);
             setCursor(response.data.explorePublications.pageInfo.next);
-            console.log("publications", publications);
         } catch (err) {
             console.log(err);
         }
@@ -53,17 +52,19 @@ export default function ExplorePublications(props) {
         <div className="explore-container">
             <h1 className="explore-title">Explore Publications</h1>
             <FilterDropdown className="filter-dropdown" options={options} value={sortCriteria} onChange={(e) => setSortCriteria(e.target.value)} />
-            <InfiniteScroll
+            { publications.length > 0 ? <InfiniteScroll
                 loadMore={loadPublications}
                 hasMore={cursor !== null}
                 loader={<p className="loader">Loading...</p>}
             >
                 <div className="publications-container">
-                    {publications.map((publication, index) => (
-                        <PublicationCard key={`${publication.metadata.id}-${index}`} publication={publication} />
+                    {publications.map((publication) => (
+                        <div key={publication.id}>
+                            <PublicationCard publication={publication} />
+                        </div>
                     ))}
                 </div>
-            </InfiniteScroll>
+            </InfiniteScroll> : null }
         </div>
     );
 }

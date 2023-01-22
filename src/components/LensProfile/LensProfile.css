@@ -1,3 +1,8 @@
+/*Component container*/
+.profile-container {
+    padding-top: 100px;
+}
+    
 /*Div containing the profile picture component*/
 .profile-picture-container {
     display: flex;
