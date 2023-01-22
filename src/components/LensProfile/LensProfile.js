@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 
 import InfiniteScroll from "react-infinite-scroller";
 
-import { getUserPosts as getPublications } from "../lensQueries/getUserPosts";
-import { getUserProfile } from "../lensQueries/getUserProfile";
-import Image from "./Image";
-import PublicationCard from "./PublicationCard";
+import { getUserPosts as getPublications } from "../../lensQueries/getUserPosts";
+import { getUserProfile } from "../../lensQueries/getUserProfile";
+import Image from "../Image/Image";
+import PublicationCard from "../PublicationCard/PublicationCard";
 
 import './LensProfile.css';
 

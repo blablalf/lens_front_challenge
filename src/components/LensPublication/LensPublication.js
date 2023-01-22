@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import InfiniteScroll from "react-infinite-scroller";
 
-import PublicationCard from "./PublicationCard";
-import PublicationComment from './PublicationComment';
+import PublicationCard from "../PublicationCard/PublicationCard";
+import PublicationComment from '../PublicationComment/PublicationComment';
+import UserHandle from '../UserHandle/UserHandle';
 
-import { getPost as getPublication } from '../lensQueries/getPost';
-import { getPostComments as getComments } from '../lensQueries/getPostComments';
+import { getPost as getPublication } from '../../lensQueries/getPost';
+import { getPostComments as getComments } from '../../lensQueries/getPostComments';
 
 import './LensPublication.css';
-import UserHandle from './UserHandle';
 
 function LensPublication() {
   const { id } = useParams();

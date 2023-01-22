@@ -1,5 +1,5 @@
 import React from 'react';
-import UserHandle from './UserHandle';
+import UserHandle from '../UserHandle/UserHandle';
 
 import "./PublicationComment.css";
 

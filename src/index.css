@@ -13,3 +13,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.main-menu {
+  position: fixed;
+  z-index: 1;
+  /*width: 100%; This is working but in mobile mode it is so ugly*/
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #333;
+  font-size: 25px;
+}
+
+.main-menu a:hover {
+  background-color: #555;
+}
+
+.main-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  height: 100%;
+  padding: 20px;
+  color: greenyellow;
+}

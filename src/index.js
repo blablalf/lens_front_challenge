@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
-import ExplorePublications from './components/ExplorePublications';
-import LensProfile from './components/LensProfile';
-import LensPublication from './components/LensPublication';
+import ExplorePublications from './components/ExplorePublications/ExplorePublications';
+import LensProfile from './components/LensProfile/LensProfile';
+import LensPublication from './components/LensPublication/LensPublication';
 import reportWebVitals from './reportWebVitals';
 
 import './index.css';
@@ -14,13 +14,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      <nav>
-        <ul >
-          <li><Link style={{color: "white"}} to={'/'} className="nav-link">/</Link></li>
-          <li><Link style={{color: "white"}} to={'/home'} className="nav-link">Home</Link></li>
-          <li><Link style={{color: "white"}} to={'/publication'} className="nav-link">Publication</Link></li>
-          <li><Link style={{color: "white"}} to={'/user'} className="nav-link">User</Link></li>
-        </ul>
+      <nav className='main-menu'>
+        <Link to={'/home'}>
+          Explore publications
+        </Link>
       </nav>
       <Routes>
         <Route path="/home" element={<ExplorePublications/>} />

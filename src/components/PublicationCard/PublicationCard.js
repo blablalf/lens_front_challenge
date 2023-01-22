@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Image from './Image';
+import Image from '../Image/Image';
 
 import "./PublicationCard.css";
 

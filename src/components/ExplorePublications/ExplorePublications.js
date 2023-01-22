@@ -1,9 +1,9 @@
-import PublicationCard from "./PublicationCard";
+import PublicationCard from "../PublicationCard/PublicationCard";
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 
-import { explorePublications } from "../lensQueries/explorePublications";
-import FilterDropdown from "./FilterDropdown";
+import { explorePublications } from "../../lensQueries/explorePublications";
+import FilterDropdown from "../FilterDropdown/FilterDropdown";
 
 import "./ExplorePublications.css";
 
