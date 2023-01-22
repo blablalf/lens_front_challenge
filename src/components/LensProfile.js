@@ -109,9 +109,6 @@ function LensProfile() {
                             ))}
                         </div>
                     </InfiniteScroll>
-                    <button className="load-more-button" onClick={loadPublications}>
-                        Load More
-                    </button>
                 </div>
             </div>
         );

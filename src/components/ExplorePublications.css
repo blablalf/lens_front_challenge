@@ -4,6 +4,8 @@
     color: white;
     padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 /*Explore publication title*/
@@ -22,34 +24,19 @@
     flex-wrap: wrap;
 }
 
-/* Dark theme */
-body {
-    background-color: #333;
-    color: white;
-}
-
 /* Loader text */
 .loader {
     color: white;
 }
 
-/* Button on the bottom of the screen if you want to load more publications manually */
-.load-more-button {
-    background-color: #4CAF50; /* Green */
-    border-radius: 30px;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+.filter-dropdown {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 10%;
 }
 
-.filter-dropdown {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-left: 5%;
+@media only screen and (max-width: 480px) {
+    .filter-dropdown {
+        margin-left: 5%;
+    }
 }

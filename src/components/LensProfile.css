@@ -34,6 +34,7 @@
 .profile-infos {
     margin-left: 40px;
     margin-right: 40px;
+    max-width: 1000px;
 }
 
 .profile-infos-text p {

@@ -1,8 +1,50 @@
-.publication {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
+.lens-publication-container {
+  color: white;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
   
+/*Container containing publication officials infos*/
+.lens-publication-infos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/*Publication media*/
+.lens-publication-pub-card {
+  width: 600px;
+}
+
+/*Container containing publication officials text infos*/
+.lens-publication-text-data {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+/*publication text content*/
+.lens-publication-text-content {
+  line-height: 1.5;
+}
+
+/*publication comments container*/
+.lens-publication-comments {
+  margin-top: 40px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+/*publication "Comments" text*/
+.lens-publication-comments-title {
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 36px;
+  color: yellow;
+}
