@@ -28,10 +28,11 @@ useEffect(() => {
 
 ___
 # Test the dapp :
-- Go to http://blablaf.tk:82/ and then :
-    - Test the explore publications page http://blablaf.tk:82/home
-    - Test the profil page http://blablaf.tk:82/user/nader.lens or http://blablaf.tk:82/user/w0xt3r.lens
-    - Test the publication page http://blablaf.tk:82/publication/0xbedb-0xa9
+- Go to http://83.114.25.154:81/home (you can't put direct url on this server so you need to navigate inside to access what you want)
+- you can go directly in local to :
+    - Test the explore publications page http://localhost:3000/home
+    - Test the profil page http://localhost:3000/user/nader.lens or http://localhost:3000/user/w0xt3r.lens
+    - Test the publication page http://localhost:3000/publication/0xbedb-0xa9
 ___
 # Build your first social network  
 
