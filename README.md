@@ -28,7 +28,6 @@ useEffect(() => {
 
 ___
 # Test the dapp :
-- Go to http://83.114.25.154:81 (you can't put direct url on this server because it is currently as a client sided server so you need to navigate inside to access what you want and you can't refresh the page)
 - you can go directly in local to :
     - Test the explore publications page http://localhost:3000/home
     - Test the profil page http://localhost:3000/user/nader.lens or http://localhost:3000/user/w0xt3r.lens
