@@ -1,3 +1,5 @@
+## 3 days challenge from [LensAI](https://www.artofficialintelligence.xyz/) guys :)
+
 # My answer facing the challenge :
 
 I did a lot of errors but it had been a while since I had touched the react so it was a good warmup.
